@@ -16,7 +16,7 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('webservers.yml')
     );
     this.fs.copy(
-      this.templatePath('group_vars'),
+      this.templatePath('group_vars/.gitkeep'),
       this.destinationPath('group_vars')
     );
     this.fs.copy(
@@ -27,9 +27,5 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('roles'),
       this.destinationPath('roles')
     );
-  },
-
-  install: function () {
-    this.installDependencies();
   }
 });
