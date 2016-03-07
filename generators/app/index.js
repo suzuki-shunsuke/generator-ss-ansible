@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
     );
     this.fs.copy(
       this.templatePath('group_vars/.gitkeep'),
-      this.destinationPath('group_vars')
+      this.destinationPath('group_vars/.gitkeep')
     );
     this.fs.copy(
       this.templatePath('host_vars'),
