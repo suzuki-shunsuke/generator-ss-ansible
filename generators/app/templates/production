@@ -1,0 +1,11 @@
+# production inventory file
+# http://docs.ansible.com/ansible/intro_inventory.html
+# [グループ名]
+# ホスト名
+# ...
+
+[webserver]
+playma.dnuts.jp
+
+[dbserver]
+playma.dnuts.jp

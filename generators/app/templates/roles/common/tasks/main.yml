@@ -1,0 +1,7 @@
+---
+- name: make developer
+  user: name={{user}} group=sudo,docker,developers
+- name: make .ssh directory
+  file: path=/home/{{user}}/.ssh state=directory mode=0700 owner={{user}}
+- name: copy authorized_keys
+  copy: src={{authorized_keys}} dest=/home/{{user}}/.ssh/authorized_keys mode=0600 owner={{user}}
