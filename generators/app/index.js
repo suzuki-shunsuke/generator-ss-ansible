@@ -23,7 +23,7 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('host_vars/.gitkeep'),
       this.destinationPath('host_vars/.gitkeep')
     );
-    this.fs.direcotry(
+    this.fs.directory(
       this.templatePath('roles'),
       this.destinationPath('roles')
     );
