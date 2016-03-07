@@ -1,36 +1,31 @@
 'use strict';
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
 
 module.exports = yeoman.generators.Base.extend({
-  prompting: function () {
-    var done = this.async();
-
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the fantabulous ' + chalk.red('generator-ss-ansible') + ' generator!'
-    ));
-
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.props = props;
-      // To access props later use this.props.someOption;
-
-      done();
-    }.bind(this));
-  },
-
   writing: function () {
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('production'),
+      this.destinationPath('production')
+    );
+    this.fs.copy(
+      this.templatePath('site.yml'),
+      this.destinationPath('site.yml')
+    );
+    this.fs.copy(
+      this.templatePath('webservers.yml'),
+      this.destinationPath('webservers.yml')
+    );
+    this.fs.copy(
+      this.templatePath('group_vars'),
+      this.destinationPath('group_vars')
+    );
+    this.fs.copy(
+      this.templatePath('host_vars'),
+      this.destinationPath('host_vars')
+    );
+    this.fs.copy(
+      this.templatePath('roles'),
+      this.destinationPath('roles')
     );
   },
 
