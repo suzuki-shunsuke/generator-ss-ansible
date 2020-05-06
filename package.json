@@ -19,7 +19,8 @@
   "dependencies": {
     "yeoman-generator": "^0.24.1",
     "chalk": "^1.0.0",
-    "yosay": "^1.0.2"
+    "yosay": "^1.0.2",
+    "snyk": "^1.319.0"
   },
   "devDependencies": {
     "yeoman-assert": "^2.0.0",
@@ -43,8 +44,10 @@
   },
   "repository": "git@github-suzuki-shunsuke:suzuki-shunsuke/generator-ss-ansible.git",
   "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "prepublish": "npm run snyk-protect && gulp prepublish",
+    "test": "gulp",
+    "snyk-protect": "snyk protect"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
